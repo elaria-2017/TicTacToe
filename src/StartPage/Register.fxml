@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartPage.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <ImageView fitHeight="600.0" fitWidth="542.0" pickOnBounds="true">
          <image>
@@ -33,8 +33,8 @@
          </font>
       </Label>
       <TextField fx:id="userName" layoutX="661.0" layoutY="200.0" prefHeight="31.0" prefWidth="250.0" promptText="User Name" />
-      <TextField fx:id="Email" layoutX="661.0" layoutY="259.0" prefHeight="31.0" prefWidth="112.0" promptText="First Name" />
-      <Button layoutX="677.0" layoutY="440.0" mnemonicParsing="false" onAction="#REGE" prefHeight="55.0" prefWidth="210.0" style="-fx-background-radius: 80px; -fx-background-color: #651A93;" text="Sign Up" textFill="WHITE">
+      <TextField fx:id="firstName" layoutX="661.0" layoutY="259.0" prefHeight="31.0" prefWidth="112.0" promptText="First Name" />
+      <Button fx:id="signup" layoutX="677.0" layoutY="440.0" mnemonicParsing="false" onAction="#REGE" prefHeight="55.0" prefWidth="210.0" style="-fx-background-radius: 80px; -fx-background-color: #651A93;" text="Sign Up" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
@@ -57,6 +57,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="Email1" layoutX="799.0" layoutY="259.0" prefHeight="31.0" prefWidth="112.0" promptText="Last Name" />
+      <TextField fx:id="lastName" layoutX="799.0" layoutY="259.0" prefHeight="31.0" prefWidth="112.0" promptText="Last Name" />
    </children>
 </AnchorPane>
