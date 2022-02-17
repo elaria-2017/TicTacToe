@@ -33,7 +33,7 @@
          </font>
       </Label>
       <TextField fx:id="userName" layoutX="661.0" layoutY="200.0" prefHeight="31.0" prefWidth="250.0" promptText="User Name" />
-      <TextField fx:id="Email" layoutX="661.0" layoutY="255.0" prefHeight="31.0" prefWidth="250.0" promptText="Email" />
+      <TextField fx:id="Email" layoutX="661.0" layoutY="259.0" prefHeight="31.0" prefWidth="112.0" promptText="First Name" />
       <Button layoutX="677.0" layoutY="440.0" mnemonicParsing="false" onAction="#REGE" prefHeight="55.0" prefWidth="210.0" style="-fx-background-radius: 80px; -fx-background-color: #651A93;" text="Sign Up" textFill="WHITE">
          <font>
             <Font size="27.0" />
@@ -57,5 +57,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <TextField fx:id="Email1" layoutX="799.0" layoutY="259.0" prefHeight="31.0" prefWidth="112.0" promptText="Last Name" />
    </children>
 </AnchorPane>
