@@ -81,7 +81,153 @@ public class PlayWithComputerController implements Initializable {
         
     }
     
+    private void changeTurn(){
+        if(playerTurn){
+            playerTurn = false;
+        }
+        else{
+            playerTurn = true;
+        }
+    }
+    private void drawX(Button b){
+        b.setText("X");
+    }
+    
+    private void drawO(Button b){
+        b.setText("O");
+    }
+    
+    public int randomMove (int max)
+    {   
+    int random_int = (int)Math.floor(Math.random()*(max));     
+ 
+    return random_int;       
+    }
+   private boolean isEmpty(Button pos)
+    {
+        return pos.getText().isEmpty();
+    
+    }
    
+   public boolean isBoardFull(){
+        for(Button boardButton : boardButtons) {
+            if(isEmpty(boardButton)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public void PlayerMove(ActionEvent event) throws InterruptedException 
+    {
+        Button btn = (Button) event.getSource(); 
+        if(isEmpty(btn) && playerTurn && !isEndOfGame){
+            drawX(btn);
+            changeTurn();
+            checkForWinner();
+            machineMove();
+            changeTurn();
+            checkForWinner();
+        }  
+     }
+    
+    public void machineMove() throws InterruptedException
+    {
+        if(isBoardFull() || playerTurn || isEndOfGame){
+            return;
+        }
+        int pos;
+        while(true){
+            pos=randomMove(boardButtons.size());
+            if(isEmpty(boardButtons.get(pos))){
+                drawO(boardButtons.get(pos));
+                break;
+            }
+        }
+    }
+    
+    public void checkForWinner(){
+        checkRows();
+        checkCols();
+        checkDiagonals();
+        checkForDraw();
+    }
+    
+    private void checkRows(){
+        if(!isEndOfGame){
+            for(int i=0;i<boardButtons.size();i+=3){
+                if(boardButtons.get(i).getText().equals(boardButtons.get(i+1).getText())
+                        && boardButtons.get(i).getText().equals(boardButtons.get(i+2).getText())
+                        && !boardButtons.get(i).getText().isEmpty()){
+                     String winner = boardButtons.get(i).getText();
+                     endGame(winner);
+                     return;
+                }
+            }
+        }
+    }
+    
+    private void checkCols(){
+        if(!isEndOfGame){
+            for(int i=0;i<3;i++){
+                if(boardButtons.get(i).getText().equals(boardButtons.get(i+3).getText())
+                        && boardButtons.get(i).getText().equals(boardButtons.get(i+6).getText())
+                        && !boardButtons.get(i).getText().isEmpty()){
+                     String winner = boardButtons.get(i).getText();
+                     endGame(winner);
+                     return;
+                }
+            }
+        }
+    }
+    
+    private void checkDiagonals(){
+        if(!isEndOfGame){
+            if(boardButtons.get(0).getText().equals(boardButtons.get(4).getText())
+                        && boardButtons.get(0).getText().equals(boardButtons.get(8).getText())
+                        && !boardButtons.get(0).getText().isEmpty()){
+                     String winner = boardButtons.get(0).getText();
+                     endGame(winner);
+                }
+            else if(boardButtons.get(2).getText().equals(boardButtons.get(4).getText())
+                        && boardButtons.get(2).getText().equals(boardButtons.get(6).getText())
+                        && !boardButtons.get(2).getText().isEmpty()){
+                     String winner = boardButtons.get(2).getText();
+                     endGame(winner);
+                }
+        }
+    }
+    
+    private void checkForDraw(){
+        if(!isEndOfGame){
+            if(isBoardFull()){
+                isEndOfGame = true;
+                Dialog<String> dialog = new Dialog<String>();
+                ButtonType type = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+                dialog.setContentText("It's a draw!");
+                dialog.getDialogPane().getButtonTypes().add(type);
+                dialog.getDialogPane().setStyle("-fx-background-color: #B19CD8;");
+                dialog.showAndWait();
+            }
+        }
+    }
+    
+    private void endGame(String winner){
+        isEndOfGame = true;
+        String msg;
+        if(winner.equals("X")){
+            msg = "You won!";
+        }
+        else{
+            msg = "You lost!";
+        }
+        Dialog<String> dialog = new Dialog<String>();
+        ButtonType type = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+        dialog.setContentText(msg);
+        dialog.getDialogPane().getButtonTypes().add(type);
+        dialog.getDialogPane().setStyle("-fx-background-color: #B19CD8;");
+        dialog.showAndWait();
+    }
     
      @Override
     public void initialize(URL url, ResourceBundle rb) {
