@@ -50,7 +50,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Text fx:id="logedInUserName" fill="WHITE" fontSmoothingType="LCD" layoutX="389.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT MODE" textAlignment="CENTER" wrappingWidth="426.99999448657036">
+      <Text fx:id="logedInUserName" fill="WHITE" fontSmoothingType="LCD" layoutX="334.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT MODE" textAlignment="CENTER" wrappingWidth="419.99999448657036">
          <font>
             <Font name="System Bold" size="52.0" />
          </font>

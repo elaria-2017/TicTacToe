@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author sara
+ * @author Lenovo
  */
 public class PlayerList extends Application {
 

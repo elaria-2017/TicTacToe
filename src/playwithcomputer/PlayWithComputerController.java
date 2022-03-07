@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Menna
+ * @author sara
  */
 public class PlayWithComputerController implements Initializable {
     

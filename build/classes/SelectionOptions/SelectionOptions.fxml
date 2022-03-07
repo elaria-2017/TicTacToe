@@ -44,5 +44,10 @@
             <Image url="@save-alt_117305.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="143.0" fitWidth="123.0" layoutX="43.0" layoutY="478.0" onDragDetected="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logout.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
